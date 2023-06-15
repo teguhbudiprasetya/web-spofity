@@ -12,6 +12,8 @@ class Home extends BaseController
 
     public function app()
     {   
+        
+
         if($this->request->getFile('file')){
             $file = $this->request->getFile('file');
 
@@ -66,6 +68,7 @@ class Home extends BaseController
                 'namaAlat' => $name,
                 'akurasi' => $accuracy,
                 'waktuPrediksi' => $timePredict,
+                'guide' => $this->AppModel->getEquipment($id),
             ];
         }
         }else{

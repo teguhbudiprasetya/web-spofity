@@ -60,17 +60,17 @@
     </div>
   </header><!-- End Header -->
 
-  <main id="main" class="p-5 d-flex justify-content-center">
-    <section id="prediction" class="prediction p-5">
-        <div class="container rounded mb-4 shadow p-5" data-aos="fade-up">
+  <main id="main" class="p-2 p-xs-5 p-xs-5 d-flex justify-content-center">
+    <section id="prediction" class="prediction p-sm-5 w-100">
+        <div class="container rounded mb-4 shadow p-xs-5" data-aos="fade-up">
 
-            <div class="row no-gutters">
+            <div class="row no-gutters p-5">
                 <div class="col-xl-12 ps-4 ps-lg-10 pe-4 pe-lg-1 d-flex align-items-stretch justify-content-center">
                     <div class="content d-flex flex-column text-center">
-                        <h3 class="fw-bold">Prediksi Alat Gym</h3>
+                        <h3 class="fw-bold mb-4">Prediksi Alat Gym</h3>
                         <div class="row d-flex align-items-stretch justify-content-center">
-                            <div class="col-11 boxes rounded ">
-                                <form class="p-5" action="/try-app/prediction" method="POST" enctype="multipart/form-data">
+                            <div class="col-11 boxes rounded bg-transparent">
+                                <form class="" action="/try-app/prediction" method="POST" enctype="multipart/form-data">
                                     <input type="file" class="form-control" name="file" id="file">
                                     <br><br>
                                     <input class="form-control" type="submit" value="Submit">
@@ -81,26 +81,28 @@
                 </div>
             </div>
         </div>
-        <div class="container cont-result rounded shadow p-5" data-aos="fade-up">
+        <?php if ($_SERVER['REQUEST_METHOD'] === 'POST') : ?>
+            <div class="container cont-result rounded shadow p-1 p-sm-3" data-aos="fade-up">
 
-            <div class="row no-gutters">
-                <div class="col-xl-12 ps-4 ps-lg-10 pe-4 pe-lg-1 d-flex align-items-stretch justify-content-center" data-aos="fade-left" data-aos-delay="10">
-                    <div class="content d-flex flex-column text-center text-dark">
-                        <h3 class="fw-bold text-warning">Nama alat : <?=$namaAlat?></h3>
-                        <h3 class="fw-bold text-warning">Akurasi : <?=$akurasi?></h3>
-                        <h3 class="fw-bold text-warning">Waktu prediksi : <?=$waktuPrediksi?></h3>
-                        <div class="row d-flex align-items-stretch justify-content-center text-warning">
-                            <p>Cara pemakaian</p>
-                            <ul>
-                                <li>
-                                    Angkat barbell
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!-- End .content-->
+                <div class="row no-gutters">
+                    <div class="col-xl-12 ps-4 ps-lg-10 pe-4 pe-lg-1 d-flex align-items-stretch" data-aos="fade-left" data-aos-delay="10">
+                        <div class="content d-flex flex-column text-dark">
+                            <h5 class="fw-bold"><?=$namaAlat?></h5>
+                            <i class="">Confident : <?=$akurasi?></i>
+                            <i class="">Time : <?=$waktuPrediksi?></i>
+                            <div class="row d-flex align-items-stretch  mt-4 ">
+                                <h5 class="fw-bold">Cara pemakaian</h5>
+                                <ol class="ps-4 ps-sm-5">
+                                    <?php foreach ($guide as $g) : ?>
+                                        <li><?=$g?></li>
+                                    <?php endforeach;?>
+                                </ol>
+                            </div>
+                        </div><!-- End .content-->
+                    </div>
                 </div>
             </div>
-        </div>
+        <?php endif?>
     </section><!-- End Counts Section -->
   </main>
 

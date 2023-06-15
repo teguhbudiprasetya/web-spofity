@@ -60,22 +60,22 @@
     </div>
   </header><!-- End Header -->
 
-  <main id="main" class="p-5 d-flex justify-content-center">
-    <section id="prediction" class="prediction p-5">
-        <div class="container rounded mb-4 shadow p-5" data-aos="fade-up">
+  <main id="main" class="p-2 pt-xs-5 p-xs-5 d-flex justify-content-center">
+    <section id="prediction" class="prediction p-sm-5 w-100">
+        <div class="container rounded mb-4 shadow p-xs-5" data-aos="fade-up">
 
-            <div class="row no-gutters">
-                <div class="col-xl-12 ps-4 ps-lg-10 pe-4 pe-lg-1 d-flex align-items-stretch justify-content-center" data-aos="fade-left" data-aos-delay="10">
+            <div class="row no-gutters p-3">
+                <div class="col-xl-12 ps-4 ps-lg-10 pe-4 pe-lg-1 d-flex align-items-stretch justify-content-center">
                     <div class="content d-flex flex-column text-center">
-                        <h3 class="fw-bold">Prediksi Alat Gym</h3>
+                        <h3 class="fw-bold">BMI</h3>
                         <div class="row d-flex align-items-stretch justify-content-center">
-                            <div class="col-11 boxes rounded ">
+                            <div class="col-11 boxes rounded bg-transparent">
                                 <form class="p-5" action="/try-app/bmi" method="POST">
-                                    <input type="number" class="form-control" placeholder="Tinggi badan" name="height" id="height">
+                                    <input type="number" class="form-control shadow" placeholder="Tinggi badan" name="height" id="height">
                                     <br>
-                                    <input type="number" class="form-control" placeholder="Berat badan" name="weight" id="weight">
+                                    <input type="number" class="form-control shadow" placeholder="Berat badan" name="weight" id="weight">
                                     <br><br>
-                                    <input class="form-control" type="submit" value="Submit">
+                                    <input class="form-control shadow" type="submit" value="Submit">
                                 </form>
                             </div>
                         </div>
@@ -83,25 +83,20 @@
                 </div>
             </div>
         </div>
-        <div class="container cont-result rounded shadow p-5" data-aos="fade-up">
+        <?php if ($_SERVER['REQUEST_METHOD'] === 'POST') : ?>
+            <div class="container cont-result rounded shadow p-1 p-sm-3" data-aos="fade-up">
 
-            <div class="row no-gutters">
-                <div class="col-xl-12 ps-4 ps-lg-10 pe-4 pe-lg-1 d-flex align-items-stretch justify-content-center">
-                    <div class="content d-flex flex-column text-center text-dark">
-                        <h3 class="fw-bold text-warning">BMI : <?=$bmi?></h3>
-                        <h3 class="fw-bold text-warning">Kategori : <?=$kategori?></h3>
-                        <div class="row d-flex align-items-stretch justify-content-center text-warning">
-                            <p>Cara pemakaian</p>
-                            <ul>
-                                <li>
-                                    Angkat barbell
-                                </li>
-                            </ul>
-                        </div>
-                    </div><!-- End .content-->
+                <div class="row no-gutters">
+                    <div class="col-xl-12 ps-4 ps-lg-10 pe-4 pe-lg-1 d-flex align-items-stretch justify-content-center" data-aos="fade-left" data-aos-delay="10">
+                        <div class="content d-flex flex-column text-dark text-center py-5">
+                            <h5 class="fw-bold">BMI</h5>
+                            <h6><?=$bmi?></h6>
+                            <h6><?=$kategori?></h6>
+                        </div><!-- End .content-->
+                    </div>
                 </div>
             </div>
-        </div>
+        <?php endif?>
     </section><!-- End Counts Section -->
   </main>
 

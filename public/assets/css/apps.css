@@ -393,14 +393,18 @@ display: block;
 
 #prediction .container{
     background-color: #ffc451;
-    width: 80vw;
+    /* width: 80vw; */
 }
 #prediction .cont-result{
     background-color: #d2d2d228;
-    width: 80vw;
+    /* width: 80vw; */
 }
 .boxes{
     /* height: 50vh;
     width: 30vw; */
     background-color: #151515;
+}
+li{
+    /* list-style-type: none; */
+    margin: 5px 0 5px 0;
 }
