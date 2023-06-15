@@ -33,8 +33,8 @@ class Home extends BaseController
             // Obtain the necessary information from the temporary file
             $tempMimeType = mime_content_type($tempPath . $tempName);
             $tempNameWithExtension = $tempName;
-
-            $apiUrl = 'https://gymtools-4ar4xydreq-et.a.run.app/';
+            
+            $apiUrl = file_get_contents('../private/api-predict.txt');
 
             $curl = curl_init($apiUrl);
             curl_setopt($curl, CURLOPT_POST, true);
@@ -95,9 +95,12 @@ class Home extends BaseController
                 'weight' => $weight
             ];
 
-            $apiUrl = 'https://backend-4ar4xydreq-et.a.run.app/api/calculate-bmi';
-            $token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiZXhhbXBsZSIsImlhdCI6MTY4NjU4NDE0Nn0.TiM8fcpmttPCj9UlZonCYoUgycpbaTTzrakOKDvFqU8';
-
+            $json_data = file_get_contents('../private/api-bmi.json');
+            $api = json_decode($json_data, true);
+            
+            $apiUrl = $api['api'];
+            $token = $api['token'];
+            
             // Mengirim data ke API menggunakan cURL
             $curl = curl_init($apiUrl);
             curl_setopt($curl, CURLOPT_POST, true);
